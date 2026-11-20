@@ -1,3 +1,132 @@
 [gd_scene format=3 uid="uid://bnc4ghf55tix8"]
 
-[node name="Node2D" type="Node2D" unique_id=2080700197]
+[ext_resource type="Script" uid="uid://4ummxyy6wsjy" path="res://menu.gd" id="1_uubjt"]
+[ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="2_5yleq"]
+
+[node name="MainMenu" type="Control" unique_id=859307019]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_uubjt")
+
+[node name="Background" type="TextureRect" parent="." unique_id=773601818]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5yleq")
+expand_mode = 1
+
+[node name="UI" type="Control" parent="." unique_id=169669254]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main" type="Control" parent="UI" unique_id=786639349]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Main" unique_id=1009692114]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Main/MarginContainer" unique_id=117861243]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Title" type="TextureRect" parent="UI/Main/MarginContainer/VBoxContainer" unique_id=1855505717]
+layout_mode = 2
+texture = ExtResource("2_5yleq")
+
+[node name="PlayButton" type="TextureButton" parent="UI/Main/MarginContainer/VBoxContainer" unique_id=1761450991]
+layout_mode = 2
+texture_normal = ExtResource("2_5yleq")
+
+[node name="SettingsButton" type="TextureButton" parent="UI/Main/MarginContainer/VBoxContainer" unique_id=1743999185]
+layout_mode = 2
+texture_normal = ExtResource("2_5yleq")
+
+[node name="Settings" type="Control" parent="UI" unique_id=1534896416]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Settings" unique_id=1019082181]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/MarginContainer" unique_id=346888659]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SettingsLabel" type="Label" parent="UI/Settings/MarginContainer/VBoxContainer" unique_id=259321259]
+layout_mode = 2
+
+[node name="FullscreenContainer" type="HBoxContainer" parent="UI/Settings/MarginContainer/VBoxContainer" unique_id=281354536]
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="UI/Settings/MarginContainer/VBoxContainer/FullscreenContainer" unique_id=871091655]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Fullscreen"
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="UI/Settings/MarginContainer/VBoxContainer/FullscreenContainer" unique_id=837571707]
+layout_mode = 2
+button_pressed = true
+
+[node name="VolumeContainer" type="VBoxContainer" parent="UI/Settings/MarginContainer/VBoxContainer" unique_id=501944232]
+layout_mode = 2
+
+[node name="VolumeLabel" type="Label" parent="UI/Settings/MarginContainer/VBoxContainer/VolumeContainer" unique_id=1502987225]
+layout_mode = 2
+text = "volume : 100"
+
+[node name="VolumeSlider" type="HSlider" parent="UI/Settings/MarginContainer/VBoxContainer/VolumeContainer" unique_id=190444615]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackButton" type="TextureButton" parent="UI/Settings/MarginContainer/VBoxContainer" unique_id=1608482067]
+layout_mode = 2
+texture_normal = ExtResource("2_5yleq")
+
+[connection signal="pressed" from="UI/Main/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="toggled" from="UI/Settings/MarginContainer/VBoxContainer/FullscreenContainer/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
+[connection signal="value_changed" from="UI/Settings/MarginContainer/VBoxContainer/VolumeContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="UI/Settings/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
