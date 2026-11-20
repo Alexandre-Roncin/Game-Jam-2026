@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://bnc4ghf55tix8"]
 
 [ext_resource type="Script" uid="uid://4ummxyy6wsjy" path="res://menu.gd" id="1_uubjt"]
+[ext_resource type="Texture2D" uid="uid://b5pqw7o4c66p1" path="res://mur1.png" id="2_5p1lm"]
 [ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="2_5yleq"]
 [ext_resource type="Texture2D" uid="uid://ddj7dxcffkx5x" path="res://Evil lemon.png" id="3_ylpcl"]
+[ext_resource type="Texture2D" uid="uid://oh1uwi0gu3l" path="res://Play_button_holder.png" id="4_dlksc"]
+[ext_resource type="Texture2D" uid="uid://doociw4uxtjxv" path="res://play_button_text.png" id="5_hcwhg"]
+[ext_resource type="Texture2D" uid="uid://1xnimcrcw5bu" path="res://SETTING.png" id="6_5p1lm"]
+[ext_resource type="Texture2D" uid="uid://uwcr70jtrjdi" path="res://grabber.png" id="8_1igrg"]
+[ext_resource type="Texture2D" uid="uid://cd3ehwew5nywm" path="res://tick.png" id="9_v0s1l"]
 
 [node name="MainMenu" type="Control" unique_id=859307019]
 clip_contents = true
@@ -15,16 +21,20 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_uubjt")
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="TextureRect" parent="." unique_id=773601818]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_5yleq")
+texture = ExtResource("2_5p1lm")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="UI" type="Control" parent="." unique_id=169669254]
 layout_mode = 1
@@ -33,6 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Main" type="Control" parent="UI" unique_id=786639349]
 layout_mode = 1
@@ -41,6 +52,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Main" unique_id=1009692114]
 layout_mode = 1
@@ -53,6 +65,7 @@ theme_override_constants/margin_left = 48
 theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 48
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Main/MarginContainer" unique_id=117861243]
 layout_mode = 2
@@ -62,28 +75,45 @@ theme_override_constants/separation = 96
 
 [node name="Title" type="TextureRect" parent="UI/Main/MarginContainer/VBoxContainer" unique_id=1855505717]
 custom_minimum_size = Vector2(718, 512)
+custom_maximum_size = Vector2(718, 512)
 layout_mode = 2
 size_flags_horizontal = 4
 offset_transform_position = Vector2(0, -350)
 offset_transform_scale = Vector2(5.5, 3.5)
 texture = ExtResource("2_5yleq")
+expand_mode = 2
 
 [node name="PlayButton" type="TextureButton" parent="UI/Main/MarginContainer/VBoxContainer" unique_id=1761450991]
+z_index = 2
 custom_minimum_size = Vector2(1000, 1000)
 custom_maximum_size = Vector2(718, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("2_5yleq")
+texture_normal = ExtResource("4_dlksc")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Title2" type="TextureRect" parent="UI/Main/MarginContainer/VBoxContainer/PlayButton" unique_id=1425423565]
+z_index = 1
+custom_minimum_size = Vector2(718, 512)
+custom_maximum_size = Vector2(718, 256)
+layout_mode = 0
+offset_top = 11.0
+offset_right = 718.0
+offset_bottom = 267.0
+size_flags_horizontal = 4
+offset_transform_position = Vector2(0, -350)
+offset_transform_scale = Vector2(5.5, 3.5)
+mouse_filter = 2
+texture = ExtResource("5_hcwhg")
+
 [node name="SettingsButton" type="TextureButton" parent="UI/Main/MarginContainer/VBoxContainer" unique_id=1743999185]
 custom_minimum_size = Vector2(1000, 1000)
-custom_maximum_size = Vector2(718, 256)
+custom_maximum_size = Vector2(256, 256)
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("2_5yleq")
+texture_normal = ExtResource("6_5p1lm")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -164,6 +194,9 @@ text = "volume : 100"
 [node name="VolumeSlider" type="HSlider" parent="UI/Settings/MarginContainer/VBoxContainer/VolumeContainer" unique_id=190444615]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_icons/grabber_highlight = ExtResource("8_1igrg")
+theme_override_icons/grabber_disabled = ExtResource("8_1igrg")
+theme_override_icons/tick = ExtResource("9_v0s1l")
 
 [node name="EvilLemon" type="TextureRect" parent="UI/Settings/MarginContainer" unique_id=1258595601]
 layout_mode = 2
