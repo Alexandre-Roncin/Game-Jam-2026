@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://4ummxyy6wsjy" path="res://menu.gd" id="1_uubjt"]
 [ext_resource type="Texture2D" uid="uid://b5pqw7o4c66p1" path="res://mur1.png" id="2_5p1lm"]
-[ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="2_5yleq"]
+[ext_resource type="Texture2D" uid="uid://mvlkl3rrr0la" path="res://Title.png" id="3_5qkn8"]
 [ext_resource type="Texture2D" uid="uid://ddj7dxcffkx5x" path="res://Evil lemon.png" id="3_ylpcl"]
 [ext_resource type="Texture2D" uid="uid://oh1uwi0gu3l" path="res://Play_button_holder.png" id="4_dlksc"]
 [ext_resource type="Texture2D" uid="uid://doociw4uxtjxv" path="res://play_button_text.png" id="5_hcwhg"]
@@ -49,7 +49,6 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Main" type="Control" parent="UI" unique_id=786639349]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,7 +83,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 offset_transform_position = Vector2(0, -350)
 offset_transform_scale = Vector2(5.5, 3.5)
-texture = ExtResource("2_5yleq")
+texture = ExtResource("3_5qkn8")
 expand_mode = 2
 
 [node name="PlayButton" type="TextureButton" parent="UI/Main/MarginContainer/VBoxContainer" unique_id=1761450991]
